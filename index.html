@@ -6,13 +6,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Viewport Widget</title>
   <style media="screen">
-    
+    *{
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+    #output{
+      font-family: monospace;
+      width:170px;
+      height: 50px;
+      background-color: rgb(0,0,0,0.8);
+      color: #fff;
+      border-radius: 10px 0 0 0;
+      padding: 10px;
+      box-sizing: border-box;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      display: none;
+    }
+
+    #output p{
+      font-size: 15px;
+      margin: 0;
+    }
   </style>
 </head>
 <body onresize="windowResize()">
   <h1>Viewport Dimensions</h1>
   <div id="output"></div>
 <script>
+
+    function hideOutput(){
+      var output = document.getElementById("output");
+      output.style.display = "none";
+    }
 
     function windowResize() {
       //*** Initialize Variables for Window Dimensions
@@ -21,13 +49,13 @@
         var ow = window.outerWidth;
         var oh = window.outerHeight;
       //*** Set Output Text
-        var txt = "Inner Width: "+iw+"<br>";
-        txt += "Inner Height: "+ih+"<br>";
-        txt += "Outer Width: "+ow+"<br>";
-        txt += "Outer Height: "+oh+"<br>";
+        var txt = "<p>Inner: "+iw+" x "+ih+"<br>";
+        txt += "Outer: "+ow+" x "+oh+"<br></p>";
       //*** Select Output Element and Display Text
         var output = document.getElementById("output");
+        output.style.display = "block";
         output.innerHTML = txt;
+        setTimeout(hideOutput, 10000);
     }
 
 </script>
