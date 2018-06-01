@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Viewport Widget</title>
+  <style media="screen">
+    
+  </style>
+</head>
+<body onresize="windowResize()">
+  <h1>Viewport Dimensions</h1>
+  <div id="output"></div>
+<script>
+
+    function windowResize() {
+      //*** Initialize Variables for Window Dimensions
+        var iw = window.innerWidth;
+        var ih = window.innerHeight;
+        var ow = window.outerWidth;
+        var oh = window.outerHeight;
+      //*** Set Output Text
+        var txt = "Inner Width: "+iw+"<br>";
+        txt += "Inner Height: "+ih+"<br>";
+        txt += "Outer Width: "+ow+"<br>";
+        txt += "Outer Height: "+oh+"<br>";
+      //*** Select Output Element and Display Text
+        var output = document.getElementById("output");
+        output.innerHTML = txt;
+    }
+
+</script>
+</body>
+</html>
